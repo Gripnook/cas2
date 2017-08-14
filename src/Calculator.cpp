@@ -3,17 +3,20 @@
 #include <iostream>
 
 #include "TokenStream.h"
-#include "GrammarParser.h"
+#include "Parser.h"
+
+namespace cas2 {
 
 void calculate(std::istream& in, std::ostream& out)
 {
     TokenStream ts(in);
-    GrammarParser p(ts);
+    Parser p(ts);
     while (in)
     {
         try
         {
-            std::cout << "> ";
+            out << "> ";
+
             Token t = ts.getToken();
             while (t.kind == Token::print)
                 t = ts.getToken();
@@ -30,4 +33,5 @@ void calculate(std::istream& in, std::ostream& out)
             ts.flush();
         }
     }
+}
 }

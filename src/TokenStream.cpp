@@ -4,6 +4,8 @@
 #include <sstream>
 #include <cctype>
 
+namespace cas2 {
+
 Token TokenStream::getToken()
 {
     if (!buffer.empty())
@@ -64,4 +66,5 @@ void TokenStream::flush()
         if (ch == Token::print || ch == '\n')
             return;
     }
+}
 }

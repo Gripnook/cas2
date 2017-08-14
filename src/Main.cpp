@@ -2,6 +2,8 @@
 
 #include "Calculator.h"
 
+using namespace cas2;
+
 int main()
 {
     try

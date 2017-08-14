@@ -1,9 +1,11 @@
-#include "GrammarParser.h"
+#include "Parser.h"
 
 #include <cmath>
 #include <stdexcept>
 
-double GrammarParser::expression()
+namespace cas2 {
+
+double Parser::expression()
 {
     double left = term();
     Token t = ts.getToken();
@@ -25,7 +27,7 @@ double GrammarParser::expression()
     }
 }
 
-double GrammarParser::term()
+double Parser::term()
 {
     double left = primary();
     Token t = ts.getToken();
@@ -60,7 +62,7 @@ double GrammarParser::term()
     }
 }
 
-double GrammarParser::primary()
+double Parser::primary()
 {
     Token t = ts.getToken();
     switch (t.kind)
@@ -82,4 +84,5 @@ double GrammarParser::primary()
     default:
         throw std::runtime_error("Expected primary");
     }
+}
 }

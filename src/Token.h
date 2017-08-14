@@ -2,6 +2,8 @@
 
 #include <set>
 
+namespace cas2 {
+
 class Token
 {
 public:
@@ -19,3 +21,4 @@ public:
     {
     }
 };
+}

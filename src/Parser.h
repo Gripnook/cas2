@@ -2,10 +2,12 @@
 
 #include "TokenStream.h"
 
-class GrammarParser
+namespace cas2 {
+
+class Parser
 {
 public:
-    GrammarParser(TokenStream& ts) : ts{ts}
+    Parser(TokenStream& ts) : ts{ts}
     {
     }
 
@@ -17,3 +19,4 @@ private:
     double term();
     double primary();
 };
+}

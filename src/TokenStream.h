@@ -5,6 +5,8 @@
 
 #include "Token.h"
 
+namespace cas2 {
+
 class TokenStream
 {
 public:
@@ -22,3 +24,4 @@ private:
     std::istream& in;
     std::vector<Token> buffer;
 };
+}

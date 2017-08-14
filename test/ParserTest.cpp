@@ -1,11 +1,11 @@
 #include "catch.hpp"
 
-#include "GrammarParser.h"
+#include "Parser.h"
 
 #include <sstream>
 #include <string>
 
-#include "TokenStream.h"
+using namespace cas2;
 
 #define TEST_EXPRESSION(expression)                  \
     TEST_CASE(expression)                            \
@@ -18,7 +18,7 @@ double evaluate(const std::string& expression)
     std::stringstream in(expression);
 
     TokenStream ts(in);
-    GrammarParser p(ts);
+    Parser p(ts);
 
     return p.expression();
 }

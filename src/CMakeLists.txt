@@ -4,4 +4,4 @@ set (MAIN_SOURCES
 	Calculator.cpp
 	Token.cpp
 	TokenStream.cpp
-	GrammarParser.cpp)
+	Parser.cpp)
