@@ -17,6 +17,7 @@ private:
     TokenStream& ts;
 
     double term();
+    double factor();
     double primary();
 };
 }

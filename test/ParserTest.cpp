@@ -68,6 +68,7 @@ TEST_EXPRESSION("1234567890 = 1234567890")
 TEST_EXPRESSION("+1 = 1")
 TEST_EXPRESSION("1++2 = 3")
 TEST_EXPRESSION("-2 = -2")
+TEST_EXPRESSION("+(100) - -10 = 110")
 
 TEST_CASE("Division by zero throws exception")
 {
@@ -92,4 +93,6 @@ TEST_CASE("Invalid inputs throw exceptions")
     CHECK_THROWS(evaluate("()"));
     CHECK_THROWS(evaluate("1+"));
     CHECK_THROWS(evaluate("1++"));
+    CHECK_THROWS(evaluate("++1"));
+    CHECK_THROWS(evaluate("+-+-100"));
 }

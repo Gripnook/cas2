@@ -29,18 +29,18 @@ double Parser::expression()
 
 double Parser::term()
 {
-    double left = primary();
+    double left = factor();
     Token t = ts.getToken();
     while (true)
     {
         switch (t.kind)
         {
         case '*':
-            left *= primary();
+            left *= factor();
             break;
         case '/':
         {
-            double d = primary();
+            double d = factor();
             if (d == 0)
                 throw std::runtime_error("Division by zero");
             left /= d;
@@ -48,7 +48,7 @@ double Parser::term()
         }
         case '%':
         {
-            double d = primary();
+            double d = factor();
             if (d == 0)
                 throw std::runtime_error("Division by zero");
             left = fmod(left, d);
@@ -59,6 +59,21 @@ double Parser::term()
             return left;
         }
         t = ts.getToken();
+    }
+}
+
+double Parser::factor()
+{
+    Token t = ts.getToken();
+    switch (t.kind)
+    {
+    case '+':
+        return primary();
+    case '-':
+        return -primary();
+    default:
+        ts.putback(t);
+        return primary();
     }
 }
 
@@ -77,10 +92,6 @@ double Parser::primary()
     }
     case Token::number:
         return t.value;
-    case '+':
-        return primary();
-    case '-':
-        return -primary();
     default:
         throw std::runtime_error("Expected primary");
     }
