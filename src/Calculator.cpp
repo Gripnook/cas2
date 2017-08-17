@@ -25,7 +25,7 @@ void calculate(std::istream& in, std::ostream& out)
                 return;
 
             ts.putback(t);
-            out << p.expression() << std::endl;
+            out << p.statement() << std::endl;
         }
         catch (std::exception& e)
         {
