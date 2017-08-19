@@ -67,6 +67,8 @@ TEST_EQUALITY("1*2/8%4+5-6 == -0.75")
 TEST_EQUALITY("1234567890 == 1234567890")
 TEST_EQUALITY("+1 == 1")
 TEST_EQUALITY("1++2 == 3")
+TEST_EQUALITY("++1 == 1")
+TEST_EQUALITY("+-+-100 == 100")
 TEST_EQUALITY("-2 == -2")
 TEST_EQUALITY("+(100) - -10 == 110")
 TEST_EQUALITY("let x = 100 == 100")
@@ -95,8 +97,6 @@ TEST_CASE("Invalid inputs throw exceptions")
     CHECK_THROWS(evaluate("()"));
     CHECK_THROWS(evaluate("1+"));
     CHECK_THROWS(evaluate("1++"));
-    CHECK_THROWS(evaluate("++1"));
-    CHECK_THROWS(evaluate("+-+-100"));
     CHECK_THROWS(evaluate("let 7 = 10"));
     CHECK_THROWS(evaluate("let x 10"));
     CHECK_THROWS(evaluate("let x"));

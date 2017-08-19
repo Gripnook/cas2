@@ -23,7 +23,6 @@ private:
     double expression();
     double subexpression();
     double term();
-    double factor();
     double primary();
 };
 }
